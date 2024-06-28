@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class ServiceUnitTest {
 	private LabSeqService service;
@@ -48,10 +48,20 @@ class ServiceUnitTest {
 	}
 
 	@ParameterizedTest
-	@ValueSource(ints = {4, 5})
-	@DisplayName("Should fail when index greater than 3")
-	void shouldFailWhenIndexGreaterThanThree(int index) {
-		var exception = Assertions.assertThrows(RuntimeException.class, () -> service.calculate(index));
-		Assertions.assertEquals("To-do", exception.getMessage());
+	@CsvSource(
+		value = {
+			"4,1",
+			"5,1",
+			"6,1",
+			"7,2",
+			"8,2",
+			"9,2",
+			"10,3"
+		}
+	)
+	@DisplayName("Should successfully calculate index greater than 3")
+	void shouldSuccessfullyCalculateIndexGraterThanThree(int index, int expectedValue) {
+		var value = service.calculate(index);
+		Assertions.assertEquals(expectedValue, value);
 	}
 }
