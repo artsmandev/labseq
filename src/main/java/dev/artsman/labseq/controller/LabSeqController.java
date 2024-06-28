@@ -1,9 +1,10 @@
 package dev.artsman.labseq.controller;
 
 import dev.artsman.labseq.model.LabSeqModel;
-import dev.artsman.labseq.response.LabSeqResponse;
+import dev.artsman.labseq.view.LabSeqViewModel;
 import dev.artsman.labseq.service.LabSeqService;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,9 +20,9 @@ class LabSeqController {
 
 	@GetMapping("/{n}")
 	@ResponseStatus(HttpStatus.OK)
-	LabSeqResponse calculate(@PathVariable("n") int index) {
+	LabSeqViewModel calculate(@PathVariable("n") @Range int index) {
 		var value = service.calculate(index);
 		var model = new LabSeqModel(index, value);
-		return new LabSeqResponse(model);
+		return new LabSeqViewModel(model);
 	}
 }

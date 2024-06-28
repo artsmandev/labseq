@@ -1,13 +1,13 @@
-package dev.artsman.labseq.response;
+package dev.artsman.labseq.view;
 
 import dev.artsman.labseq.model.LabSeqModel;
 import lombok.Getter;
 
 @Getter
-public class LabSeqResponse {
+public class LabSeqViewModel {
 	private final String data;
 
-	public LabSeqResponse(LabSeqModel model) {
+	public LabSeqViewModel(LabSeqModel model) {
 		data = "l(%d) = %d".formatted(model.index(), model.value());
 	}
 }
