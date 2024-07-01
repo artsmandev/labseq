@@ -1,8 +1,8 @@
 package dev.artsman.labseq.controller;
 
 import dev.artsman.labseq.model.LabSeqModel;
-import dev.artsman.labseq.view.LabSeqViewModel;
 import dev.artsman.labseq.service.LabSeqService;
+import dev.artsman.labseq.view.LabSeqViewModel;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.http.HttpStatus;
