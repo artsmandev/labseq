@@ -1,3 +1,5 @@
 package dev.artsman.labseq.model;
 
-public record LabSeqModel(int index, int value) {}
+import java.math.BigInteger;
+
+public record LabSeqModel(int index, BigInteger value) {}

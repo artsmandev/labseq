@@ -1,5 +1,9 @@
 package dev.artsman.labseq.service;
 
+import dev.artsman.labseq.cache.Cache;
+import dev.artsman.labseq.enumeration.LabSeqBase;
+import java.math.BigInteger;
+import java.time.Duration;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -12,39 +16,39 @@ class ServiceUnitTest {
 
 	@BeforeEach
 	void setup() {
-		service = new LabSeqService();
+		service = new LabSeqService(new Cache());
 	}
 
 	@Test
 	@DisplayName("Should return 0 to index = 0")
 	void shouldReturnZeroToIndexZero() {
-		var index = 0;
-		var value = service.calculate(index);
-		Assertions.assertEquals(0, value);
+		var zero = LabSeqBase.ZERO;
+		var value = service.calculate(zero.index());
+		Assertions.assertEquals(zero.value(), value);
 	}
 
 	@Test
 	@DisplayName("Should return 1 to index = 1")
 	void shouldReturnOneToIndexOne() {
-		var index = 1;
-		var value = service.calculate(index);
-		Assertions.assertEquals(1, value);
+		var one = LabSeqBase.ONE;
+		var value = service.calculate(one.index());
+		Assertions.assertEquals(one.value(), value);
 	}
 
 	@Test
 	@DisplayName("Should return 0 to index = 2")
 	void shouldReturnZeroToIndexTwo() {
-		var index = 2;
-		var value = service.calculate(index);
-		Assertions.assertEquals(0, value);
+		var two = LabSeqBase.TWO;
+		var value = service.calculate(two.index());
+		Assertions.assertEquals(two.value(), value);
 	}
 
 	@Test
 	@DisplayName("Should return 1 to index = 3")
 	void shouldReturnOneToIndexThree() {
-		var index = 3;
-		var value = service.calculate(index);
-		Assertions.assertEquals(1, value);
+		var three = LabSeqBase.THREE;
+		var value = service.calculate(three.index());
+		Assertions.assertEquals(three.value(), value);
 	}
 
 	@ParameterizedTest
@@ -60,7 +64,7 @@ class ServiceUnitTest {
 		}
 	)
 	@DisplayName("Should successfully calculate index greater than 3")
-	void shouldSuccessfullyCalculateIndexGraterThanThree(int index, int expectedValue) {
+	void shouldSuccessfullyCalculateIndexGraterThanThree(int index, BigInteger expectedValue) {
 		var value = service.calculate(index);
 		Assertions.assertEquals(expectedValue, value);
 	}
