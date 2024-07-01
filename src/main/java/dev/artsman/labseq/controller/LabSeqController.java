@@ -1,6 +1,7 @@
 package dev.artsman.labseq.controller;
 
 import dev.artsman.labseq.model.LabSeqModel;
+import dev.artsman.labseq.oas.LabSeqOpenApiSpec;
 import dev.artsman.labseq.service.LabSeqService;
 import dev.artsman.labseq.view.LabSeqViewModel;
 import lombok.RequiredArgsConstructor;
@@ -15,12 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/labseq")
 @RequiredArgsConstructor
-class LabSeqController {
+class LabSeqController implements LabSeqOpenApiSpec {
 	private final LabSeqService service;
 
 	@GetMapping("/{n}")
 	@ResponseStatus(HttpStatus.OK)
-	LabSeqViewModel calculate(@PathVariable("n") @Range int index) {
+	@Override
+	public LabSeqViewModel calculate(@PathVariable("n") @Range int index) {
 		var value = service.calculate(index);
 		var model = new LabSeqModel(index, value);
 		return new LabSeqViewModel(model);
