@@ -42,32 +42,24 @@ _sequence_.
 ---
 
 This is a simple project using:
-1. JDK 21
-2. Maven 3
+1. JDK 21 `✔︎`
+2. Maven 3 `✔︎`
 2. Spring Boot 3
 3. OpenAPI 3
 
-> Yep, they needed to be installed in your machine.
+`✔︎` Yep, they needed to be installed in your machine.
 
 ### ⚽️ How to play
 ---
 
 1. 👻 Clone the repo:
-
-    ```shell
-    git clone git@github.com:artsmandev/labseq.git
-    ```
+   > git clone git@github.com:artsmandev/labseq.git
 
 2. 🏃🏻‍➡️ Run the app:
-
-    ```shell
-    mvn spring-boot:run
-    ```
+   > mvn spring-boot:run
 
 3. 🎯 Go to OpenAPI Specification Documentation:
 
-    ```url
-    http://localhost:8080/swagger-ui.html
-    ```
+   > http://localhost:8080/swagger-ui.html
 
 4. 🎮 Rock it!
