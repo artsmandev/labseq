@@ -35,3 +35,6 @@ _sequence_.
 2. where **{n}** represents the **index** _of the sequence’s(single) value to return_;
 3. The _index may be any_ **non-
 negative integer number**;
+4. Should use a caching mechanism to take advantage of previous calculations to speed up future calculations.\
+4.1 This caching mechanism must be used in the algorithm's intermediate calculations (if applicable), and not only in the endpoint's invocations.\
+5. Calculation performance is also a plus - calculation of l(10000) must be correctly returned under 10s.
