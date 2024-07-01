@@ -67,7 +67,7 @@ This is a simple project using:
 3. 🎯 Go to OpenAPI Specification Documentation:
 
     ```url
-    http://localhost:8080/swagger-ui
+    http://localhost:8080/swagger-ui.html
     ```
 
 4. 🎮 Rock it!
